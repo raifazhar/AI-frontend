@@ -1,3 +1,4 @@
+const API_URL = "https://gamecoverai-backend-production.up.railway.app/predict"; // Add /predict
 const classLabels = ["Action", "Adventure", "Horror", "RPG", "Sports"]; // Adjust based on your model
 
 async function uploadImage() {
@@ -42,6 +43,6 @@ async function uploadImage() {
     resultDiv.innerText = `🎮 Predicted Genre: ${predictedLabel} (${confidence}%)`;
   } catch (error) {
     console.error("Prediction error:", error);
-    resultDiv.innerText = "An error occurred while predicting.";
+    resultDiv.innerText = " An error occurred while predicting.";
   }
 }
