@@ -1,4 +1,4 @@
-const API_URL = "https://gamecoverai-backend-production.up.railway.app/predict"; // Add /predict
+const classLabels = ["Action", "Adventure", "Horror", "RPG", "Sports"]; // Adjust based on your model
 
 async function uploadImage() {
   const fileInput = document.getElementById("imageInput");
@@ -17,23 +17,18 @@ async function uploadImage() {
       body: formData,
     });
 
-    const text = await response.text(); // Read raw response
-    console.log("Raw response text:", text);
+    const data = await response.json();
+    const prediction = data.prediction;
+    const maxIndex = prediction.indexOf(Math.max(...prediction));
+    const predictedLabel = classLabels[maxIndex];
 
-    let data;
-    try {
-      data = JSON.parse(text);
-    } catch (parseError) {
-      console.error("Failed to parse JSON:", parseError);
-      document.getElementById("result").innerText =
-        "Error parsing response: " + parseError.message;
-      return;
-    }
-
-    document.getElementById("result").innerText =
-      "Prediction: " + JSON.stringify(data.prediction);
+    document.getElementById(
+      "result"
+    ).innerText = `Predicted Genre: ${predictedLabel} (${(
+      prediction[maxIndex] * 100
+    ).toFixed(2)}%)`;
   } catch (error) {
-    console.error("Network or fetch error:", error);
+    console.error(error);
     document.getElementById("result").innerText = "An error occurred.";
   }
 }
