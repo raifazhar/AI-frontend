@@ -1,4 +1,4 @@
-const API_URL = "https://gamecoverai-backend.up.railway.app/predict"; // Use your actual Railway public URL
+const API_URL = "https://gamecoverai-backend-production.up.railway.app"; // Use your actual Railway public URL
 
 async function uploadImage() {
   const fileInput = document.getElementById("imageInput");
