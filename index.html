@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Game Cover AI</title>
+  <title>Game Cover Classifier</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Game Cover Classifier</h1>
+  <h1>🎮 Game Cover Classifier</h1>
+  <p class="description">
+    Upload a video game cover image and let our AI model predict the game or category it belongs to!
+    This classifier is trained using deep learning to recognize popular game titles based on their cover art.
+  </p>
 
   <input type="file" id="imageInput" accept="image/*">
+  <br>
   <button onclick="uploadImage()">Predict</button>
 
   <p id="result">Prediction will appear here.</p>
 
   <script src="script.js"></script>
 </body>
+
 </html>
